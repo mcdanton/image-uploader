@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.example.image_uploader.ImageViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/text_view_image_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="@{vm.imageTitle}"
+            tools:text="Image 1"/>
+
+        <TextView
+            android:id="@+id/text_view_image_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@{vm.imageProgressLabel}"
+            tools:text="Progress: 40%"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar_image_progress"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:progressTint="@color/black"
+            style="?android:progressBarStyleHorizontal"
+            android:progress="@{vm.imageProgress}"
+            android:animateLayoutChanges="true"
+            tools:progress="50"/>
+
+    </LinearLayout>
+
+</layout>
