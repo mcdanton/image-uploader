@@ -1,13 +1,13 @@
 package com.example.image_uploader
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
     private val imageListFragment by lazy { ImageListFragment() }
     private val imageDetailsFragment by lazy { ImageDetailsFragment() }
-    var currentFragment = R.layout.fragment_image_list
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,14 +15,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
-            // Allows fragments to easily pass in fragment id for
-            // Main Activity to access
             replaceFragment(R.layout.fragment_image_list)
         }
 
     }
 
-    private fun replaceFragment(fragmentId: Int?) {
+    fun replaceFragment(fragmentId: Int?, selectedImage: UploadableImage? = null) {
 
         // Include "extra" case here for safety in case unsupported Frag Id passed
         val fragment = when(fragmentId) {
@@ -31,6 +29,9 @@ class MainActivity : AppCompatActivity() {
                 imageListFragment
             }
             R.layout.fragment_image_details -> {
+                val bundle = Bundle()
+                bundle.putSerializable("PASSED_UPLOADED_IMAGE", selectedImage)
+                imageDetailsFragment.arguments = bundle
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
                 imageDetailsFragment
             }
@@ -46,6 +47,15 @@ class MainActivity : AppCompatActivity() {
                 addToBackStack(this::class.java.simpleName)
                 commit()
             }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            replaceFragment(R.layout.fragment_image_list, null)
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
 }

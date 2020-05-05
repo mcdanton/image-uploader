@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.item_image.view.*
 
 class ImageListAdapter(
     var images: List<UploadableImage>,
@@ -15,11 +16,11 @@ class ImageListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageListViewHolder {
+
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemView = layoutInflater.inflate(R.layout.item_image, parent, false)
-        return ImageListViewHolder(
-            itemView
-        )
+        return ImageListViewHolder(itemView)
+
     }
 
     override fun onBindViewHolder(holder: ImageListViewHolder, position: Int) {
@@ -39,5 +40,10 @@ class ImageListAdapter(
 
 class ImageListViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
 
-    fun setupView(item: UploadableImage) {}
+    fun setupView(item: UploadableImage) {
+
+        view.text_view_image_title.text = item?.title
+        view.text_view_image_progress.text = "Progress ${item.progress}"
+        view.progress_bar_image_progress.progress = item?.progress
+    }
 }

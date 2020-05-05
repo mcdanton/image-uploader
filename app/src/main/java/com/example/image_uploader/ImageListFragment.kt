@@ -13,17 +13,13 @@ import kotlinx.android.synthetic.main.fragment_image_list.*
 
 class ImageListFragment : Fragment() {
 
-    private lateinit var binding: FragmentImageListBinding
     private val viewModel = ImageListViewModel()
+    private lateinit var binding: FragmentImageListBinding
     private lateinit var recyclerView: RecyclerView
     private var adapter: ImageListAdapter? = null
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = FragmentImageListBinding.inflate(inflater, container, false)
 
@@ -57,23 +53,21 @@ class ImageListFragment : Fragment() {
                 notifyDataSetChanged()
             }
 
-            // Show message to user if no restaurants are found
             if (uploadedImages.isNullOrEmpty())
                 layout_no_uploaded_images.visibility = View.VISIBLE
             else
                 layout_no_uploaded_images.visibility = View.GONE
-    })
+        })
 
-}
+    }
 
-private fun showImageDetails(item: UploadableImage) {
+    private fun showImageDetails(item: UploadableImage) {
 
-    // Would never actually switch frags like this
-    // Or cast activity like this
-    val mainActivity = activity as MainActivity
-    mainActivity.currentFragment = R.layout.fragment_image_details
+        // Would never actually switch frags like this
+        // Or cast activity like this
+        val mainActivity = activity as MainActivity
+        mainActivity.replaceFragment(R.layout.fragment_image_details, item)
 
-
-}
+    }
 
 }
