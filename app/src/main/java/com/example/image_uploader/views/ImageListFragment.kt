@@ -1,4 +1,4 @@
-package com.example.image_uploader
+package com.example.image_uploader.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.image_uploader.*
 import com.example.image_uploader.databinding.FragmentImageListBinding
+import com.example.image_uploader.view_models.ImageListViewModel
 import kotlinx.android.synthetic.main.fragment_image_list.*
 
 class ImageListFragment : Fragment() {
 
-    private val viewModel = ImageListViewModel()
+    private val viewModel =
+        ImageListViewModel()
     private lateinit var binding: FragmentImageListBinding
     private lateinit var recyclerView: RecyclerView
     private var adapter: ImageListAdapter? = null

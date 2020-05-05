@@ -1,15 +1,18 @@
-package com.example.image_uploader
+package com.example.image_uploader.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.image_uploader.view_models.ImageViewModel
+import com.example.image_uploader.UploadableImage
 import com.example.image_uploader.databinding.FragmentImageDetailsBinding
 
 class ImageDetailsFragment : Fragment() {
 
-    private val viewModel = ImageViewModel()
+    private val viewModel =
+        ImageViewModel()
     private lateinit var binding: FragmentImageDetailsBinding
 
 

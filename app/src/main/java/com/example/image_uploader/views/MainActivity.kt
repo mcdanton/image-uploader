@@ -1,8 +1,10 @@
-package com.example.image_uploader
+package com.example.image_uploader.views
 
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.image_uploader.R
+import com.example.image_uploader.UploadableImage
 
 class MainActivity : AppCompatActivity() {
 

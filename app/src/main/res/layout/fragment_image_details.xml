@@ -5,7 +5,7 @@
     <data>
         <variable
             name="vm"
-            type="com.example.image_uploader.ImageViewModel" />
+            type="com.example.image_uploader.view_models.ImageViewModel" />
     </data>
 
     <LinearLayout

@@ -1,9 +1,9 @@
-package com.example.image_uploader
+package com.example.image_uploader.view_models
 
-import android.graphics.drawable.Drawable
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.image_uploader.ImageUploadRepository
 
 class ImageViewModel: ViewModel() {
 

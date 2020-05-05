@@ -1,6 +1,7 @@
 # Image Uploader
 
- 
+ <img src="app/src/main/res/drawable/home_screen.png" width=200> 
+<img src="app/src/main/res/drawable/details_screen.png" width=200> 
 
 ## Getting Started
 
